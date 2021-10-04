@@ -53,7 +53,7 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       }}
     >
       <Link to={`/`}>
-        <Button className="app-btn">Explore</Button>
+        <Button className="app-btn">Auctions</Button>
       </Link>
       <Link to={`/artworks`}>
         <Button className="app-btn">
@@ -82,7 +82,7 @@ const MetaplexMenu = () => {
             <Menu>
               <Menu.Item>
                 <Link to={`/`}>
-                  <Button className="app-btn">Explore</Button>
+                  <Button className="app-btn">Auctions</Button>
                 </Link>
               </Menu.Item>
               <Menu.Item>
@@ -122,9 +122,9 @@ export const AppBar = () => {
         <div className="app-right app-bar-box">
           <UserActions />
           <CurrentUserBadge
-            showBalance={false}
-            showAddress={false}
-            iconSize={24}
+            showBalance={true}
+            showAddress={true}
+            iconSize={48}
           />
         </div>
       ) : (

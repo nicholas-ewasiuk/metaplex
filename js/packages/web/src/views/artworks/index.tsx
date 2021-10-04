@@ -25,7 +25,8 @@ export const ArtworksView = () => {
   const { metadata, isLoading } = useMeta();
   const [activeKey, setActiveKey] = useState(ArtworkViewState.Metaplex);
   const breakpointColumnsObj = {
-    default: 4,
+    default: 5,
+    1800: 4,
     1100: 3,
     700: 2,
     500: 1,
