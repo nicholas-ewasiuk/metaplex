@@ -152,57 +152,57 @@ export const AuctionListView = () => {
 
   return (
     <>
-      {/*<PreSaleBanner auction={heroAuction} />*/}
-      <Layout>
-        <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
-          <Col style={{ width: '100%', marginTop: 10 }}>
-            {liveAuctions.length >= 0 && (
-              <Row>
-                <Tabs
-                  activeKey={activeKey}
-                  onTabClick={key => setActiveKey(key as LiveAuctionViewState)}
+    <PreSaleBanner auction={heroAuction} />
+    <Layout>
+      <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <Col style={{ width: '100%', marginTop: 10 }}>
+          {liveAuctions.length >= 0 && (
+            <Row>
+              <Tabs
+                activeKey={activeKey}
+                onTabClick={key => setActiveKey(key as LiveAuctionViewState)}
+              >
+                <TabPane
+                  tab={<span className="tab-title">Live Auctions</span>}
+                  key={LiveAuctionViewState.All}
                 >
+                  {liveAuctionsView}
+                </TabPane>
+                {auctionsEnded.length > 0 && (
                   <TabPane
-                    tab={<span className="tab-title">Live Auctions</span>}
-                    key={LiveAuctionViewState.All}
+                    tab={
+                      <span className="tab-title">Secondary Marketplace</span>
+                    }
+                    key={LiveAuctionViewState.Resale}
                   >
                     {liveAuctionsView}
                   </TabPane>
-                  {auctionsEnded.length > 0 && (
-                    <TabPane
-                      tab={
-                        <span className="tab-title">Secondary Marketplace</span>
-                      }
-                      key={LiveAuctionViewState.Resale}
-                    >
-                      {liveAuctionsView}
-                    </TabPane>
-                  )}
-                  {auctionsEnded.length > 0 && (
-                    <TabPane
-                      tab={<span className="tab-title">Ended Auctions</span>}
-                      key={LiveAuctionViewState.Ended}
-                    >
-                      {endedAuctions}
-                    </TabPane>
-                  )}
-                  {
-                    // Show all participated live and ended auctions except hero auction
-                  }
-                  {connected && (
-                    <TabPane
-                      tab={<span className="tab-title">Participated</span>}
-                      key={LiveAuctionViewState.Participated}
-                    >
-                      {liveAuctionsView}
-                    </TabPane>
-                  )}
-                </Tabs>
-              </Row>
-            )}
-          </Col>
-        </Content>
-      </Layout>
-    </>
-  );
+                )}
+                {auctionsEnded.length > 0 && (
+                  <TabPane
+                    tab={<span className="tab-title">Ended Auctions</span>}
+                    key={LiveAuctionViewState.Ended}
+                  >
+                    {endedAuctions}
+                  </TabPane>
+                )}
+                {
+                  // Show all participated live and ended auctions except hero auction
+                }
+                {connected && (
+                  <TabPane
+                    tab={<span className="tab-title">Participated</span>}
+                    key={LiveAuctionViewState.Participated}
+                  >
+                    {liveAuctionsView}
+                  </TabPane>
+                )}
+              </Tabs>
+            </Row>
+          )}
+        </Col>
+      </Content>
+    </Layout>
+  </>
+);
 };
